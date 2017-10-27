@@ -1,8 +1,9 @@
 const client = require("mongodb").MongoClient;
-const request = require('request');
+const request = require("request");
+const config = require("../config.json");
 
 const DB_NAME = "vlille";
-const VLILLE_API_BASE = "https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&rows=-1"
+const VLILLE_API_BASE = `https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&rows=-1&apikey=${config.apiKey}`
 
 client.connect("mongodb://localhost/" + DB_NAME, (error, db) => {
   if (error) {
